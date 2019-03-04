@@ -1,18 +1,18 @@
 require File.expand_path("../Strategies/cache_wo_download", __dir__)
 
-# A formula that installs the Instant Client Tools package.
-class InstantclientTools < Formula
-  desc "Oracle Instant Client Tools x64"
+# A formula that installs the Instant Client SQLPlus package.
+class InstantclientSqlplus12 < Formula
+  desc "Oracle Instant Client SQLPlus x64"
   homepage "http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html"
   hp = homepage
 
-  url "http://download.oracle.com/otn/mac/instantclient/181000/instantclient-tools-macos.x64-18.1.0.0.0.zip",
+  url "http://download.oracle.com/otn/mac/instantclient/122010/instantclient-sqlplus-macos.x64-12.2.0.1.0-2.zip",
       :using => (Class.new(CacheWoDownloadStrategy) do
                    define_method :homepage do
                      hp
                    end
                  end)
-  sha256 "eb1286e7fbb0992e683af74371271f45646ab69ff645fa88342afcbd6468ca1d"
+  sha256 "d147cbb5b2a954fdcb4b642df4f0bd1153fd56e0f56e7fa301601b4f7e2abe0e"
 
   option "with-basiclite", "Depend on instantclient-basiclite instead of instantclient-basic."
 
@@ -21,9 +21,9 @@ class InstantclientTools < Formula
 
   def install
     if HOMEBREW_PREFIX.to_s != "/usr/local"
-      system DevelopmentTools.locate("install_name_tool"), "-add_rpath", HOMEBREW_PREFIX/"lib", "tools"
+      system DevelopmentTools.locate("install_name_tool"), "-add_rpath", HOMEBREW_PREFIX/"lib", "sqlplus"
     end
     lib.install Dir["*.dylib"]
-    bin.install %w[impdp expdp exp imp wrc sqlldr]
+    bin.install ["sqlplus"]
   end
 end

@@ -1,18 +1,18 @@
 require File.expand_path("../Strategies/cache_wo_download", __dir__)
 
 # A formula that installs the Instant Client SDK package.
-class InstantclientSdk11 < Formula
+class InstantclientSdk12 < Formula
   desc "Oracle Instant Client SDK x64"
   homepage "http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html"
   hp = homepage
 
-  url "http://download.oracle.com/otn/mac/instantclient/11204/instantclient-sdk-macos.x64-11.2.0.4.0.zip",
+  url "http://download.oracle.com/otn/mac/instantclient/122010/instantclient-sdk-macos.x64-12.2.0.1.0-2.zip",
       :using => (Class.new(CacheWoDownloadStrategy) do
                    define_method :homepage do
                      hp
                    end
                  end)
-  sha256 "aead0663c206a811cf1f61d3b2a533ff81e6e6109dd31544ad850a7ef6eb5d19"
+  sha256 "e0befca9c4e71ebc9f444957ffa70f01aeeec5976ea27c40406471b04c34848b"
 
   conflicts_with "instantclient-sdk",
                  :because => "Differing versions of same formula"
