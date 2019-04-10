@@ -6,13 +6,13 @@ class InstantclientSdk < Formula
   homepage "http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html"
   hp = homepage
 
-  url "http://download.oracle.com/otn/mac/instantclient/181000/instantclient-sdk-macos.x64-18.1.0.0.0.zip",
+  url "http://download.oracle.com/otn/mac/instantclient/181000/instantclient-sdk-macos.x64-18.1.0.0.0-2.zip",
       :using => (Class.new(CacheWoDownloadStrategy) do
                    define_method :homepage do
                      hp
                    end
                  end)
-  sha256 "ee95df666ebcd378a2bc0ea041918a8b249930b1914b20d3fa8361e725e92a1c"
+  sha256 "98e6d797f1ce11e59b042b232f62380cec29ec7d5387b88a9e074b741c13e63a"
 
   def install
     lib.install ["sdk"]
